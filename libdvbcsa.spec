@@ -1,11 +1,11 @@
-#
 Summary:	A free implementation of the DVB/CSA
+Summary(pl.UTF-8):	Wolnodostępna implementacja DVB/CSA
 Name:		libdvbcsa
 Version:	1.1.0
 Release:	1
 License:	GPL v2+
 Group:		Libraries
-Source0:	http://download.videolan.org/pub/videolan/libdvbcsa/1.1.0/%{name}-%{version}.tar.gz
+Source0:	http://download.videolan.org/pub/videolan/libdvbcsa/%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	478ab1ca56ca58d2667da6ce22f74e39
 URL:		http://www.videolan.org/developers/libdvbcsa.html
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -13,6 +13,11 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 libdvbcsa is a free implementation of the DVB Common Scrambling
 Algorithm - DVB/CSA - with encryption and decryption capabilities.
+
+%description -l pl.UTF-8
+libdvbcsa to wolnodostępna implementacja algorytmu DVB/CSA (DVB
+Common Scrambling Algorithm - ogólnego algorytmu kodowania DVB)
+wraz z możliwością szyfrowania i odszyfrowywania.
 
 %package devel
 Summary:	Header files for %{name} library
@@ -51,6 +56,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+# library has no dependencies (except for libc)
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/%{name}.la
 
 %clean
@@ -61,13 +67,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS
+%doc AUTHORS ChangeLog README
 %attr(755,root,root) %{_libdir}/%{name}.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/%{name}.so.1
 
 %files devel
 %defattr(644,root,root,755)
-%doc ChangeLog NEWS README
 %attr(755,root,root) %{_libdir}/%{name}.so
 %{_includedir}/dvbcsa
 
