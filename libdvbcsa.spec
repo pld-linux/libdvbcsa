@@ -2,7 +2,7 @@ Summary:	A free implementation of the DVB/CSA
 Summary(pl.UTF-8):	Wolnodostępna implementacja DVB/CSA
 Name:		libdvbcsa
 Version:	1.1.0
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://download.videolan.org/pub/videolan/libdvbcsa/%{version}/%{name}-%{version}.tar.gz
