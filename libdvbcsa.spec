@@ -8,6 +8,7 @@ Group:		Libraries
 Source0:	http://download.videolan.org/pub/videolan/libdvbcsa/%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	478ab1ca56ca58d2667da6ce22f74e39
 URL:		http://www.videolan.org/developers/libdvbcsa.html
+BuildRequires:	automake
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -47,6 +48,8 @@ Statyczna biblioteka %{name}.
 %setup -q
 
 %build
+cp -f /usr/share/automake/config.sub .
+
 %configure
 %{__make}
 
